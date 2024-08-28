@@ -2,7 +2,6 @@ package logica.exercicios.aula05;
 import java.util.Scanner;
 
 public class Exercicio04 {
-	//testandooooooo
 
 	public static void main(String[] args) {
 
@@ -17,6 +16,8 @@ public class Exercicio04 {
 		float media_aritmetica = (a+b)/2;
 		
 		System.out.println("Sua media eh:"+media_aritmetica);
+	
+		scan.close();
 	}
 
 }

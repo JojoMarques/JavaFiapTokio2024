@@ -13,6 +13,5 @@ public class Exercicio01 {
 		System.out.println("endereço: "+endereco);
 		System.out.println("CEP: "+cep);
 		System.out.println("telefone: "+telefone);
-
 	}
 }

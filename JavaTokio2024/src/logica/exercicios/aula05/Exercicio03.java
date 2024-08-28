@@ -16,7 +16,7 @@ public class Exercicio03 {
 		
 		System.out.printf("Ola, %s! Voce escolheu a seguinte opcao de genero: %c", nome, opcao);
 		
-		
+		scan.close();
 	}
 
 }

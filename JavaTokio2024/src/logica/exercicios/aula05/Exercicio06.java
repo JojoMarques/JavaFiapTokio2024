@@ -27,6 +27,7 @@ public class Exercicio06 {
 		float valor_total = (qtd_peca1*valorUnitario_peca1) + (qtd_peca2*valorUnitario_peca2);
 		System.out.printf("Valor total: R$ %.2f", valor_total);
 
+		scan.close();
 	}
 
 }

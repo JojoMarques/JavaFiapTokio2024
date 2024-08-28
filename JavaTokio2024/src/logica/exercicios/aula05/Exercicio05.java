@@ -16,6 +16,8 @@ public class Exercicio05 {
 		float media_ponderada = (0.4f*a)+(0.6f*b);
 		
 		System.out.println("Sua media eh:"+media_ponderada);
+	
+		scan.close();
 	}
 
 }
