@@ -4,7 +4,7 @@ public class Exercicio01 {
 
 	public static void main(String[] args) {
 
-		String nome = "Carlos Sainz Vasquez de Castro Sinámon Rincon";
+		String nome = "Carlos Sainz Vázquez de Castro Cenamor Rincón";
 		String endereco = "Rua Ferrai, 55 - Monza, Itália";
 		String cep = "555555555";
 		String telefone = "11 955555555";

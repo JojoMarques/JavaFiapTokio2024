@@ -12,7 +12,7 @@ public class Exercicio11 {
 		int dias = scan.nextInt();
 		
 		anos = dias/365;
-		meses = (dias%365)/30;
+		meses = (dias%365)/30; //o que sobrou dos anos.
 		dias = (dias%365)%30 ;
 		
 		System.out.printf("idade: %d anos, %d meses, %d dias. ", anos,meses,dias);
