@@ -6,7 +6,7 @@ public class Exercicio05 {
 	public static void main(String[] args) {
 
 		Scanner scan = new Scanner(System.in);
-		
+		//aaaaa
 		System.out.println("Entre com a primeira nota:");
 		float a = scan.nextFloat();
 		
