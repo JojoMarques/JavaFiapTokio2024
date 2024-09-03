@@ -64,6 +64,7 @@ public class Exercicio11 {
 		System.out.printf("valor total transportado: R$%.0f",valorTotal);
 		
 		scan.close();
+		//teste p ver se deu certo
 	}
 
 }
