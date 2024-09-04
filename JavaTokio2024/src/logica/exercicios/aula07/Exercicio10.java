@@ -5,6 +5,7 @@ public class Exercicio10 {
 
 	public static void main(String[] args) {
 		
+		//terminar
 		Scanner scan = new Scanner(System.in);
 
 		int numero= 2000, primo = 0;
