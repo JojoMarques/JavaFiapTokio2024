@@ -5,7 +5,7 @@ import java.util.Calendar;
 public class Exercicio01 {
 
 	public static void main(String[] args) {
-		Scanner scan = new Scanner (system.in);
+		Scanner scan = new Scanner (System.in);
 
 		String nome;
 		int hora;
@@ -23,6 +23,7 @@ public class Exercicio01 {
 		else
 			System.out.println("boa noite, "+nome);
 
+		scan.close();
 	}
 
 }

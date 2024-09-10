@@ -14,25 +14,26 @@ public class Exercicio03 {
 		int ctmaius = 0,ctminus = 0 ,ctnum = 0 ,vazio = 0;
 
 		for (int i = 0; i < palavra.length(); i++) {
-      			//maiúsculo
+      			//maiusculo
 			if ((palavra.charAt(i) >= 'A') && (palavra.charAt(i) <= 'Z')) 
 				ctmaius++;
-       			 // minúsculo
+       			 // minusculo
 			else if ((palavra.charAt(i) >= 'a') && (palavra.charAt(i) <= 'z')) 
 				ctminus++;
-          		// numérico
+          		// numerico
 			else if ((palavra.charAt(i) >= '0') && (palavra.charAt(i) <= '9'))
 		      ctnum++;
-            		// vazio
-			else if (palavra.charAt(i) == ' '){
+            	//vazio
+			else if (palavra.charAt(i) == ' ')
 				    vazio++;
 		}
       
-		System.out.println("quantidade de caracteres alfabéticos maiúsculos: "+ctmaius);
-		System.out.println("quantidade de caracteres alfabéticos minúsculos: "+ctminus);
-		System.out.println("quantidade de caracteres numéricos: "+ctnum);			
-		System.out.println("quantidade de espaço em branco: "+vazio);
+		System.out.println("quantidade de caracteres alfabeticos maiusculos: "+ctmaius);
+		System.out.println("quantidade de caracteres alfabeticos minusculos: "+ctminus);
+		System.out.println("quantidade de caracteres numericos: "+ctnum);			
+		System.out.println("quantidade de espacos em branco: "+vazio);
 
       scan.close();
-	}
+	
+}
 }
