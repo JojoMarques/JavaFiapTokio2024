@@ -16,9 +16,9 @@ public class Exercicio01 {
 		Calendar calendar = Calendar.getInstance();
 		hora = calendar.get(Calendar.HOUR_OF_DAY);
 
-		if(hora >=6 && hora<12)
+		if(hora>=6 && hora<12)
 			System.out.println("bom dia, "+nome);
-		if(hora>12 && hora<17)
+		if(hora>12 && hora<18)
 			System.out.println("boa tarde, "+nome);
 		else
 			System.out.println("boa noite, "+nome);
