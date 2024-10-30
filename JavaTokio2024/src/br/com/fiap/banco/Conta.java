@@ -2,12 +2,17 @@ package br.com.fiap.banco;
 
 public class Conta {
 
-	private Cliente cliente;
-	private String numeroConta;
-	private float saldoCliente;
+	// muda pra protected pra poder herdar os atributos
+	protected Cliente cliente;
+	protected String numeroConta;
+	protected float saldoCliente;
+
+	public Conta(Cliente cliente, String numeroConta) {
+		this.cliente = cliente;
+		this.numeroConta = numeroConta;
+	}
 
 	public Conta(Cliente cliente, String numeroConta, float saldoCliente) {
-		super();
 		this.cliente = cliente;
 		this.numeroConta = numeroConta;
 		this.saldoCliente = saldoCliente;
