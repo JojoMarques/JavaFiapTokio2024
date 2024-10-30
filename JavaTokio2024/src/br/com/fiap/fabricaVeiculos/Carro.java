@@ -6,19 +6,19 @@ public class Carro {
 
 	private String marca;
 	private String modelo;
-	private Date anoDeFabricacao = new Date();
-	private Date anoModelo = new Date();
+	private String anoDeFabricacao;
+	private String anoModelo;
 	private int renavam;
 	private String motor;
 	private String tipoDeCambio;
 	private float aroDasRodas;
 	private float velocidade;
-	private String nomeDoCondutor;
+	private Condutor condutor;
 	private boolean ligado = false;
 	private float limiteVelocidade;
 
-	public Carro(String marca, String modelo, Date anoDeFabricacao, Date anoModelo, int renavam, String motor,
-			String tipoDeCambio, float aroDasRodas, float velocidade, String nomeDoCondutor, float limiteVelocidade) {
+	public Carro(String marca, String modelo, String anoDeFabricacao, String anoModelo, int renavam, String motor,
+			String tipoDeCambio, float aroDasRodas, float velocidade, Condutor condutor, float limiteVelocidade) {
 		super();
 		this.marca = marca;
 		this.modelo = modelo;
@@ -29,7 +29,7 @@ public class Carro {
 		this.tipoDeCambio = tipoDeCambio;
 		this.aroDasRodas = aroDasRodas;
 		this.velocidade = velocidade;
-		this.nomeDoCondutor = nomeDoCondutor;
+		this.condutor = condutor;
 		this.limiteVelocidade = limiteVelocidade;
 	}
 
@@ -52,7 +52,8 @@ public class Carro {
 		if (this.ligado)
 			this.velocidade += valor;
 		if (this.velocidade >= this.limiteVelocidade)
-			this.velocidade = this.limiteVelocidade; //vai só até o limite (meio que o resto que ultrapassa isso, é ignorado)
+			this.velocidade = this.limiteVelocidade; // vai só até o limite (meio que o resto que ultrapassa isso, é
+														// ignorado)
 
 		return this.velocidade;
 	}
@@ -76,10 +77,10 @@ public class Carro {
 
 	// peguei o modelo do toString
 	public void exibirDadosDoCarro() {
-		System.out.println("Carro [marca=" + marca + ", modelo=" + modelo + ", anoDeFabricacao=" + anoDeFabricacao + ", anoModelo="
-				+ anoModelo + ", venavam=" + renavam + ", motor=" + motor + ", tipoDeCambio=" + tipoDeCambio
-				+ ", aroDasRodas=" + aroDasRodas + ", velocidade=" + velocidade + ", nomeDoCondutor=" + nomeDoCondutor
-				+ ", ligado=" + ligado + "]");
+		System.out.println("Carro [marca=" + marca + ", modelo=" + modelo + ", anoDeFabricacao=" + anoDeFabricacao
+				+ ", anoModelo=" + anoModelo + ", venavam=" + renavam + ", motor=" + motor + ", tipoDeCambio="
+				+ tipoDeCambio + ", aroDasRodas=" + aroDasRodas + ", velocidade=" + velocidade + ", nomeDoCondutor="
+				+ condutor.getNomeCondutor() + ", ligado=" + ligado + "]");
 	}
 
 }

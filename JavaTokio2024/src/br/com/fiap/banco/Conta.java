@@ -2,15 +2,13 @@ package br.com.fiap.banco;
 
 public class Conta {
 
-	private String nomeCliente;
-	private String cpfCliente;
+	private Cliente cliente;
 	private String numeroConta;
 	private float saldoCliente;
 
-	public Conta(String nomeCliente, String cpfCliente, String numeroConta, float saldoCliente) {
+	public Conta(Cliente cliente, String numeroConta, float saldoCliente) {
 		super();
-		this.nomeCliente = nomeCliente;
-		this.cpfCliente = cpfCliente;
+		this.cliente = cliente;
 		this.numeroConta = numeroConta;
 		this.saldoCliente = saldoCliente;
 	}
@@ -44,20 +42,12 @@ public class Conta {
 			System.out.println("--> Saldo insuficiente. <--\n");
 	}
 
-	public String getNomeCliente() {
-		return nomeCliente;
+	public Cliente getCliente() {
+		return cliente;
 	}
 
-	public void setNomeCliente(String nomeCliente) {
-		this.nomeCliente = nomeCliente;
-	}
-
-	public String getCpfCliente() {
-		return cpfCliente;
-	}
-
-	public void setCpfCliente(String cpfCliente) {
-		this.cpfCliente = cpfCliente;
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
 	}
 
 	public String getNumeroConta() {

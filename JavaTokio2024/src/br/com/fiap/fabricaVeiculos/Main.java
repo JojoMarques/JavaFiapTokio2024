@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class Main {
 
-	@SuppressWarnings("deprecation") // a data só tá funcionando com isso.
 	public static void main(String[] args) {
 
 		/*
@@ -13,8 +12,9 @@ public class Main {
 		 * velocidade, String nomeDoCondutor
 		 */
 
-		Carro carro1 = new Carro("Toyota", "Corolla", new Date(120, 0, 1), new Date(121, 0, 1), 1234567890, "2.0 Flex",
-				"Automático", 17.0f, 0.0f, "João Silva", 300);
+		Condutor condutor1 = new Condutor("João da Silva", "111.222-3", "123.321.123-12");
+		Carro carro1 = new Carro("Toyota", "Corolla", "01/01/2022", "01/01/2023", 1234567890, "2.0 Flex", "Automático",
+				17.0f, 0.0f, condutor1, 300);
 
 		// ligando
 		carro1.ligar();
@@ -28,8 +28,9 @@ public class Main {
 		// freando
 		carro1.frear(100);
 
-		Caminhao caminhao1 = new Caminhao("Volvo", "FH 540", new Date(120, 0, 1), new Date(121, 0, 1), 1234567890,
-				"D16K", "Automático", 22f, 120, 6, 2000.0f, 1500.0f, "Granel", "João Silva", 90);
+		Carga carga1 = new Carga(100, 0, "Granel");
+		Caminhao caminhao1 = new Caminhao("Volvo", "FH 540", "01/01/2020", "01/01/2021", 1234567890, "D16K",
+				"Automático", 22f, 120, 6, carga1, condutor1, 90);
 
 		caminhao1.carregar(100);
 		caminhao1.exibirDadosDoCarro();
