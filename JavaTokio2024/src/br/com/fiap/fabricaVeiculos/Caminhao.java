@@ -1,6 +1,6 @@
 package br.com.fiap.fabricaVeiculos;
 
-public class Caminhao {
+public class Caminhao extends Veiculo {
 
 	private String marca;
 	private String modelo;
@@ -11,6 +11,7 @@ public class Caminhao {
 	private String tipoDeCambio;
 	private float aroDasRodas;
 	private int velocidade;
+	
 	private int eixos;
 	private Carga carga;
 	private Condutor condutor;

@@ -2,7 +2,7 @@ package br.com.fiap.fabricaVeiculos;
 
 import java.util.Date;
 
-public class Carro {
+public class Carro extends Veiculo{
 
 	private String marca;
 	private String modelo;
@@ -13,6 +13,7 @@ public class Carro {
 	private String tipoDeCambio;
 	private float aroDasRodas;
 	private float velocidade;
+	
 	private Condutor condutor;
 	private boolean ligado = false;
 	private float limiteVelocidade;
