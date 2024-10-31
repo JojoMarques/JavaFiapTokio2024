@@ -10,12 +10,14 @@ public class Cliente {
 	private String cpfCliente;
 	private String enderecoCliente;
 	private Date dataNasc = new Date();
+	private String email;
 
-	public Cliente(String nomeCliente, String cpfCliente, String enderecoCliente, String dataNasc) {
+	public Cliente(String nomeCliente, String cpfCliente, String enderecoCliente, String email, String dataNasc) {
 		super();
 		this.nomeCliente = nomeCliente;
 		this.cpfCliente = cpfCliente;
 		this.enderecoCliente = enderecoCliente;
+		this.email = email;
 		SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 		// converte de String --> Date
 
@@ -51,6 +53,14 @@ public class Cliente {
 
 	public void setEnderecoCliente(String enderecoCliente) {
 		this.enderecoCliente = enderecoCliente;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	public Date getDataNasc() {

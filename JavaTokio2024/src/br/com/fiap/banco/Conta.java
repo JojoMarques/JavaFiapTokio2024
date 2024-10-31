@@ -1,10 +1,13 @@
 package br.com.fiap.banco;
 
-public class Conta {
+import java.util.Date;
+
+public abstract class Conta {
 
 	// muda pra protected pra poder herdar os atributos
 	protected Cliente cliente;
 	protected String numeroConta;
+	protected Date dataAbertura = new Date();
 	protected float saldoCliente;
 
 	public Conta(Cliente cliente, String numeroConta) {
@@ -18,12 +21,12 @@ public class Conta {
 		this.saldoCliente = saldoCliente;
 	}
 
-	public void Sacar(float valor) {
+	public boolean Sacar(double valor) {
 		if (this.saldoCliente >= valor) {
 			this.saldoCliente -= valor;
-			System.out.printf("--> Saque de R$ %.2f efetuado. <-- \n", valor);
+			return true;
 		} else
-			System.out.println("--> Saldo insuficiente. <--\n");
+			return false;
 	}
 
 	public void Depositar(float valor) {
@@ -46,6 +49,8 @@ public class Conta {
 		} else
 			System.out.println("--> Saldo insuficiente. <--\n");
 	}
+
+	public abstract void exibirSaldo();
 
 	public Cliente getCliente() {
 		return cliente;
