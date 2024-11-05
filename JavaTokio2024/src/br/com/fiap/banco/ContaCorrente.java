@@ -25,12 +25,13 @@ public class ContaCorrente extends Conta {
 	// passa o produto aqui pra saber o produto que vem pra cá
 	// esse Produto produto não é uma instância da interface produto, e sim das classes que implementam essa interface 
 	// pq pelo fato da LCA, LCI e CDB implementarem de Produto, isso faz deles um produto
-	public void investimento(Produto produto, double valor) {
+	public void investimento(Produto produto, double valor) throws SaldoInsuficiente{
 		/* aqui na condição, o prfessor coloca if(...sacar()), isso pq o sacar dele retorna booelan (aí ja faz a verificação)
 		if (this.saldoCliente >= valor) //minha versão antiga {*/
-		if(this.Sacar(valor)) {
-		this.saldoInvestimento += produto.investir(valor);
-		 }
+		if(this.Sacar(valor)) 
+			this.saldoInvestimento += produto.investir(valor);
+		else
+			throw new SaldoInsuficiente("Saldo insuficiente");
 	}
 
 	/* MINHA VERSÃO ANTIGA (COM MINHA LÓGICA PURA)

@@ -21,12 +21,12 @@ public abstract class Conta {
 		this.saldoCliente = saldoCliente;
 	}
 
-	public boolean Sacar(double valor) {
+	public boolean Sacar(double valor) throws SaldoInsuficiente {
 		if (this.saldoCliente >= valor) {
 			this.saldoCliente -= valor;
 			return true;
 		} else
-			return false;
+			throw new SaldoInsuficiente("Saldo insuficiente");
 	}
 
 	public void Depositar(float valor) {
@@ -37,7 +37,8 @@ public abstract class Conta {
 		return this.saldoCliente;
 	}
 
-	public void Transferir(float valor, Conta contaDestino) {
+	// indica aqui em cima que esse trecho gera exceção
+	public void Transferir(float valor, Conta contaDestino) throws SaldoInsuficiente {
 		if (this.saldoCliente >= valor) {
 
 			// adicionando o valor na conta destino
@@ -47,7 +48,7 @@ public abstract class Conta {
 			// retirando o valor da conta atual
 			this.Sacar(valor);
 		} else
-			System.out.println("--> Saldo insuficiente. <--\n");
+			throw new SaldoInsuficiente("Saldo insuficiente");
 	}
 
 	public abstract void exibirSaldo();

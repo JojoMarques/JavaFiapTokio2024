@@ -2,7 +2,7 @@ package br.com.fiap.banco;
 
 public class Executavel {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws SaldoInsuficiente {
 
 		Cliente cliente1 = new Cliente("Jojo", "435.543.548-21", "Brasil", "jojo@gmail.com", "03/08/2006");
 		Cliente cliente2 = new Cliente("João", "123.456.789-10", "Brasil", "mimi@gmail.com ", "19/07/2006");
@@ -18,6 +18,18 @@ public class Executavel {
 		// cc1.investir("cdb", 50);
 		cc1.investimento(cdb, 50);
 		cc1.exibirSaldo();
+	
+		try {
+			cc1.investimento(cdb, 10000);
+		}catch (SaldoInsuficiente e){
+			e.printStackTrace();
+		}
+		
+		try {
+			cc1.Sacar(10000);
+		}catch (SaldoInsuficiente e){
+			e.printStackTrace();
+		}
 		
 		/* String nomeCliente, String cpfCliente, String numeroConta, float saldoCliente
 		Conta conta1 = new Conta(cliente1, "000-123", 1000);
