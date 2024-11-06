@@ -1,5 +1,8 @@
 package java_poo.exercicios.aula06;
 
+import java.util.Iterator;
+import java.util.List;
+
 public class Usuario implements Comparable<Usuario> {
 
 	private int idUsuario;
@@ -36,6 +39,11 @@ public class Usuario implements Comparable<Usuario> {
 		this.senha = senha;
 	}
 
+	@Override
+	public String toString() {
+		return "Usuario [idUsuario=" + idUsuario + ", nome=" + nome + ", senha=" + senha + "]";
+	}
+
 	// esse metodo eh o parametro que ele tem pra ordenar pelo ID
 	@Override
 	public int compareTo(Usuario user) {
@@ -46,6 +54,18 @@ public class Usuario implements Comparable<Usuario> {
 			return 1;
 		}
 		return 0;
+	}
+
+	// método de remoção
+	public List<Usuario> remover(String nome, List<Usuario> list) {
+		Iterator<Usuario> iterator = list.iterator();
+		while (iterator.hasNext()) {
+			Usuario usuario = iterator.next();
+			if (usuario.getNome() == nome) {
+				iterator.remove();
+			}
+		}
+		return list;
 	}
 
 }
