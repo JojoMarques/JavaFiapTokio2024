@@ -2,6 +2,7 @@ package java_poo.exercicios.aula06;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 public class Usuario implements Comparable<Usuario> {
 
@@ -38,7 +39,7 @@ public class Usuario implements Comparable<Usuario> {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Usuario [idUsuario=" + idUsuario + ", nome=" + nome + ", senha=" + senha + "]";
@@ -67,5 +68,14 @@ public class Usuario implements Comparable<Usuario> {
 		}
 		return list;
 	}
+	
+	/*public void recuperaObjeto(String chave, Map mapa) {
+		for(Usuario usuario: mapa) {
+			if()
+				System.out.println("encontrou");
+			else
+				System.out.println("nao encontrou");
+		}
+	}*/
 
 }
