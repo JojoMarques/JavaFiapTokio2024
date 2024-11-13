@@ -1,0 +1,127 @@
+-- Remover objetos existentes, se houver
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE AREA_ATUACAO CASCADE CONSTRAINTS';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+   EXECUTE IMMEDIATE 'DROP SEQUENCE seq_area';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -2289 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TRIGGER trg_area_id';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -4080 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TABLE CANDIDATO CASCADE CONSTRAINTS';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -942 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+   EXECUTE IMMEDIATE 'DROP SEQUENCE seq_candidato';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -2289 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+BEGIN
+   EXECUTE IMMEDIATE 'DROP TRIGGER trg_candidato_id';
+EXCEPTION
+   WHEN OTHERS THEN
+      IF SQLCODE != -4080 THEN
+         RAISE;
+      END IF;
+END;
+/
+
+-- Criar tabela AREA_ATUACAO
+CREATE TABLE AREA_ATUACAO (
+    idArea NUMBER(19) PRIMARY KEY,       
+    nome VARCHAR2(100) NOT NULL         
+);
+
+-- Criar sequência para AREA_ATUACAO
+CREATE SEQUENCE seq_area
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+-- Criar trigger para gerar ID automaticamente em AREA_ATUACAO
+CREATE OR REPLACE TRIGGER trg_area_id
+BEFORE INSERT ON AREA_ATUACAO
+FOR EACH ROW
+BEGIN
+    IF :NEW.idArea IS NULL THEN
+        SELECT seq_area.NEXTVAL
+        INTO :NEW.idArea
+        FROM dual;
+    END IF;
+END;
+/
+
+-- Criar tabela CANDIDATO
+CREATE TABLE CANDIDATO (
+    idCandidato NUMBER(19) PRIMARY KEY,  
+    nome VARCHAR2(100) NOT NULL,          
+    telefone VARCHAR2(20),                
+    email VARCHAR2(100),                  
+    endereco VARCHAR2(255),               
+    formacao VARCHAR2(100),               
+    data_nasc DATE,                       
+    genero VARCHAR2(10),                  
+    tempo_experiencia NUMBER(3),          
+    idArea NUMBER(19),                    
+    CONSTRAINT fk_area FOREIGN KEY (idArea) REFERENCES AREA_ATUACAO(idArea)  
+);
+
+-- Criar sequência para CANDIDATO
+CREATE SEQUENCE seq_candidato
+START WITH 1
+INCREMENT BY 1
+NOCACHE
+NOCYCLE;
+
+-- Criar trigger para gerar ID automaticamente em CANDIDATO
+CREATE OR REPLACE TRIGGER trg_candidato_id
+BEFORE INSERT ON CANDIDATO
+FOR EACH ROW
+BEGIN
+    IF :NEW.idCandidato IS NULL THEN
+        SELECT seq_candidato.NEXTVAL
+        INTO :NEW.idCandidato
+        FROM dual;
+    END IF;
+END;
+/
+
+select * from candidato;
+
+-- Confirmar as alterações
+COMMIT;
+
