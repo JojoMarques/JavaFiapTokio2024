@@ -27,6 +27,10 @@ public class CandidatoDAO {
 		this.connection = new ConnectionFactory().conectar(); // criando a conexão e chamando o método conectar
 	}
 
+	public CandidatoDAO(Connection connection) {
+		this.connection = connection;
+		}
+
 	public void insert(Candidato candidato) {
 		String sql = "insert into candidato (nome, data_nasc, tempo_experiencia, formacao, telefone, email, endereco, idArea, genero) values (?,?,?,?,?,?,?,?,?)";
 		try {
@@ -69,7 +73,7 @@ public class CandidatoDAO {
 
 	/// update:
 	public void update(Candidato candidato) {
-		String sql = "update candidato set nome=?, data_nasc=?, tempo_experiencia=?, formacao=?, telefone=?, email=?, endereco=?, idArea=?, genero=? where id=?";
+		String sql = "update candidato set nome=?, data_nasc=?, tempo_experiencia=?, formacao=?, telefone=?, email=?, endereco=?, idArea=?, genero=? where idCandidato=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 
@@ -114,7 +118,7 @@ public class CandidatoDAO {
 				candidato.setFormacao(rs.getString("formacao"));
 				candidato.setEndereco(rs.getString("endereco"));
 				candidato.setTelefone(rs.getString("telefone"));
-				candidato.setGenero((Genero)(rs.getObject("genero")));
+				candidato.setGenero(Genero.valueOf(rs.getString("genero")));
 
 				listaCandidatos.add(candidato);
 
@@ -129,7 +133,7 @@ public class CandidatoDAO {
 	/// selectById:
 	public Candidato selectById(long idCandidato) {
 		Candidato candidato = new Candidato();
-		String sql = "select * from candidato where id=?";
+		String sql = "select * from candidato where idCandidato=?";
 		try {
 			PreparedStatement stmt = connection.prepareStatement(sql);
 			stmt.setLong(1, idCandidato);
@@ -144,7 +148,7 @@ public class CandidatoDAO {
 				candidato.setFormacao(rs.getString("formacao"));
 				candidato.setEndereco(rs.getString("endereco"));
 				candidato.setTelefone(rs.getString("telefone"));
-				candidato.setGenero((Genero)(rs.getObject("genero")));
+				candidato.setGenero(Genero.valueOf(rs.getString("genero")));
 			}
 			stmt.close();
 		} catch (SQLException e) {

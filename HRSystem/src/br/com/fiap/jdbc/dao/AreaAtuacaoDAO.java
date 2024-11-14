@@ -19,6 +19,10 @@ public class AreaAtuacaoDAO {
 		this.connection = new ConnectionFactory().conectar(); // criando a conexão e chamando o método conectar
 	}
 
+	public AreaAtuacaoDAO(Connection connection) {
+		this.connection = connection;
+	}
+
 	public void insert(AreaAtuacao areaAtuacao) {
 		String sql = "insert into area_atuacao (nome) values (?)";
 		try {
